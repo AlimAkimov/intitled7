@@ -21,7 +21,7 @@ public class Main {
         Объявите переменную clientOS, которая равна 0 или 1 (0 — iOS, 1 — Android).*/
 
         int clientOS = 1;
-        if (clientOS == 1) {
+        if (clientOS == 0) {
             System.out.println("Установите версию приложения для iOS по ссылке");
         } else {
             System.out.println("Установите версию приложения для Android по ссылке");
@@ -44,14 +44,14 @@ public class Main {
 //                Важно: вложенность больше двух этажей не допускается (условный оператор внутри условного оператора).
         int clientOS = 0;
         int clientDeviceYear = 2015;
-        if (clientOS == 1) {
+        if (clientOS == 0) {
             if (clientDeviceYear < 2015) {
                 System.out.println("Установите облегченную версию приложения для iOS по ссылке");
             } else {
                 System.out.println("Установите версию приложения для iOS по ссылке");
             }
         }
-        if (clientOS == 0) {
+        if (clientOS == 1) {
             if (clientDeviceYear < 2015) {
                 System.out.println("Установите облегченную версию приложения для Android по ссылке");
             } else {
