@@ -7,100 +7,88 @@ public class Main {
     public static void main(String[] args) {
 //        taks1();
 //        task2();
-        task3();
+//        task3();
+        task4();
 
 
+    }
+
+    // Объявить метод «сгенерироватьМассив»
+    public static int[] generateRandomArray() {
+        java.util.Random random = new java.util.Random();
+        int[] arr = new int[30];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = random.nextInt(100_000) + 100_000;
+        }
+        return arr;
     }
 
     public static void taks1() {
-//        Объявите три массива:
-//        Целочисленный массив, заполненный тремя цифрами — 1, 2 и 3 — с помощью ключевого слова new.
-//        Массив, в котором можно хранить три дробных числа — 1.57, 7.654, 9.986. Массив сразу заполните значениями.
-//        Произвольный массив. Тип и количество данных определите сами. Самостоятельно выберите
-//        способ создания массива: с помощью ключевого слова или сразу заполненный элементами.
-
-        int[] oneTwoThree = new int [] {1, 2, 3};
-        double [] fractionalNumber = {1.57, 7.654, 9.986};
-        String [] arbitraryArray = {"что-то", "Где-то", "Потому что", "камень", "дерево", "булыжник"};
-        // Распечатайте на отдельной строчке элементы каждого массива по порядку через запятую. В конце строки запятую ставить не надо.
-        for (int i = 0; i < 3; i++)
-        if (i == oneTwoThree.length - 1) {
-            System.out.print(oneTwoThree[i] + ".");
-        } else {
-            System.out.print(oneTwoThree[i] + ", ");
+//        Задача 1
+//        Бухгалтеры попросили посчитать сумму всех выплат за месяц.
+//        Напишите программу, которая решит эту задачу, и выведите в консоль результат в формате: «Сумма трат за месяц
+//        составила … рублей».
+        int[] arr = generateRandomArray();
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            int number = arr[i];
+            sum = sum + number;
         }
-        System.out.println();
+        System.out.println("Сумма трат за месяц составила " + sum + " рублей.");
 
-        for (int i = 0; i < fractionalNumber.length; i++)
-        if (i == fractionalNumber.length - 1) {
-            System.out.print(fractionalNumber[i] + ".");
-        } else {
-            System.out.print(fractionalNumber[i] + ", ");
-        }
-
-        System.out.println();
-
-        for (int i = 0; i < arbitraryArray.length; i++)
-        if (i == arbitraryArray.length - 1) {
-            System.out.print(arbitraryArray[i] + ".");
-        } else {
-            System.out.print(arbitraryArray[i] + ", ");
-        }
-        }
+    }
 
     public static void task2() {
-//        Распечатайте на отдельной строчке элементы каждого массива в обратном порядке через запятую. В конце строки запятую ставить не надо.
-//                Если в задаче № 2 в консоль у вас вывелся результат:
-//        1, 2, 3
-//        1.57, 7.654, 9.986
-// произвольные элементы третьего массива
-//        то в этой задаче результат должен быть таким:
-//        3, 2, 1
-//        9.986, 7.654, 1.57
-// произвольные элементы третьего массива в обратном порядке
-        int[] oneTwoThree = new int [] {1, 2, 3};
-        double [] fractionalNumber = {1.57, 7.654, 9.986};
-        String [] arbitraryArray = {"что-то", "Где-то", "Потому что", "камень", "дерево", "булыжник"};
-
-        for (int i = oneTwoThree.length -1; i >= 0; i--)
-        if (i == 0) {
-            System.out.print(oneTwoThree[i] + ".");
-        } else {
-            System.out.print(oneTwoThree[i] + ", ");
-        }
-        System.out.println();
-
-        for (int i = fractionalNumber.length -1; i >= 0; i--)
-        if (i == 0) {
-            System.out.print(fractionalNumber[i] + ".");
-        } else {
-            System.out.print(fractionalNumber[i] + ", ");
-        }
-        System.out.println();
-
-        for (int i = arbitraryArray.length - 1; i >= 0; i--)
-            if (i == 0) {
-                System.out.print(arbitraryArray[i] + ".");
-            } else {
-                System.out.print(arbitraryArray[i] + ", ");
+//        Также бухгалтерия попросила найти минимальную и максимальную трату за день.
+//        Напишите программу, которая решит эту задачу, и выведите в консоль результат в формате:
+//        «Минимальная сумма трат за день составила … рублей. Максимальная сумма трат за день составила … рублей».
+        int[] arr = generateRandomArray();
+        int maxNumber = -1;
+        for (int current : arr) {
+            if (current > maxNumber) {
+                maxNumber = current;
             }
+        }
+        int minNumber = Integer.MAX_VALUE;
+        for (int i : arr) {
+            if (i < minNumber) {
+                minNumber = i;
+            }
+        }
+        System.out.println("Минимальная сумма трат за день составила " + minNumber + " рублей. Максимальная сумма трат за день составила " + maxNumber + " рублей.");
     }
+
     public static void task3() {
-//        Пройдитесь по первому целочисленному массиву и все нечетные числа в нем сделайте четными (нужно прибавить 1).
-//        Важно: код должен работать с любым целочисленным массивом, поэтому для решения задания используйте циклы.
-//        Распечатайте результат преобразования в консоль.
-
-        int[] oneTwoThree = new int [] {1, 2, 3};
-        for (int i = 0; i < oneTwoThree.length; i++ ) {
-            int number = oneTwoThree[i];
-            if (number % 2 != 0) {
-            number = number + 1;
-                System.out.print(number + " ");
-            } else {
-                System.out.print(number + " ");
-            }
+//        Теперь бухгалтерия хочет понять, какую в среднем сумму компания тратила в течение 30 дней.
+//        Напишите программу, которая посчитает среднее значение трат за месяц (то есть сумму всех трат
+//        за месяц поделить на количество дней), и выведите в консоль результат в формате:
+//        «Средняя сумма трат за месяц составила … рублей».
+//        Важно помнить: подсчет среднего значения может иметь остаток, то есть быть не целым, а дробным числом.
+        int[] arr = generateRandomArray();
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            int number = arr[i];
+            sum = sum + number;
         }
+        sum = sum / 30;
+        System.out.println(sum);
+    }
 
+    public static void task4() {
+//     В бухгалтерской книге появился баг. Что-то пошло нет так — фамилии и имена сотрудников начали отображаться в обратную сторону.
+//      Т. е. вместо «Иванов Иван» мы имеем «навИ вонавИ». Данные с именами сотрудников хранятся в виде массива символов — char[ ].
+//        Напишите код, который в случае такого бага будет выводить фамилии и имена сотрудников в корректном виде.
+//        В качестве данных для массива используйте:
+//        char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
+//        В результате в консоль должно быть выведено: Ivanov Ivan.
+//        Важно: не используйте дополнительные массивы для решения этой задачи. Необходимо корректно пройти по массиву циклом и
+//        распечатать его элементы в правильном порядке.
+        char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
+        for (int i = reverseFullName.length - 1; i >= 0; i--) {
+            System.out.print(reverseFullName[i]);
+
+
+        }
     }
 
 
